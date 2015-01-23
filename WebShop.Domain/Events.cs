@@ -43,55 +43,40 @@ namespace Itera.Fagdag.WebShop.Domain
         }
     }
 
-    public class InventoryItemDeactivated : Event {
-        public readonly Guid Id;
 
-        public InventoryItemDeactivated(Guid id)
+    public class AddedToFavorites : Event
+    {
+        public readonly Guid UserId;
+        public readonly Guid ProductId;
+
+        public AddedToFavorites(Guid productId, Guid userId)
         {
-            Id = id;
+            UserId = userId;
+            ProductId = productId;
         }
     }
 
-    public class InventoryItemCreated : Event {
-        public readonly Guid Id;
-        public readonly string Name;
-        public InventoryItemCreated(Guid id, string name) {
-            Id = id;
-            Name = name;
-        }
-    }
-
-    public class InventoryItemRenamed : Event
+    public class RemovedFromFavorites : Event
     {
-        public readonly Guid Id;
-        public readonly string NewName;
- 
-        public InventoryItemRenamed(Guid id, string newName)
+        public readonly Guid UserId;
+        public readonly Guid ProductId;
+
+        public RemovedFromFavorites(Guid productId, Guid userId)
         {
-            Id = id;
-            NewName = newName;
+            UserId = userId;
+            ProductId = productId;
         }
     }
 
-    public class ItemsCheckedInToInventory : Event
+    public class ProductAvailabilityNotificationAdded : Event
     {
-        public Guid Id;
-        public readonly int Count;
- 
-        public ItemsCheckedInToInventory(Guid id, int count) {
-            Id = id;
-            Count = count;
-        }
-    }
+        public readonly Guid ProductId;
+        public readonly string Email;
 
-    public class ItemsRemovedFromInventory : Event
-    {
-        public Guid Id;
-        public readonly int Count;
- 
-        public ItemsRemovedFromInventory(Guid id, int count) {
-            Id = id;
-            Count = count;
+        public ProductAvailabilityNotificationAdded(Guid productId, string email)
+        {
+            ProductId = productId;
+            Email = email;
         }
     }
 }

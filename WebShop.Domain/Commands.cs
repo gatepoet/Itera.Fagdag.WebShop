@@ -15,6 +15,7 @@ namespace Itera.Fagdag.WebShop.Domain
             CartId = cartId;
         }
     }
+
     public class AddCartItem : Command
     {
         public readonly Guid CartId;
@@ -30,6 +31,7 @@ namespace Itera.Fagdag.WebShop.Domain
             OriginalVersion = originalVersion;
         }
     }
+
     public class RemoveCartItem : Command
     {
         public readonly Guid CartId;
@@ -46,64 +48,39 @@ namespace Itera.Fagdag.WebShop.Domain
         }
     }
 
+    public class AddToFavorites : Command
+    {
+        public readonly Guid UserId;
+        public readonly Guid ProductId;
 
-    public class DeactivateInventoryItem : Command {
-        public readonly Guid InventoryItemId;
-        public readonly int OriginalVersion;
-
-        public DeactivateInventoryItem(Guid inventoryItemId, int originalVersion)
+        public AddToFavorites(Guid productId, Guid userId)
         {
-            InventoryItemId = inventoryItemId;
-            OriginalVersion = originalVersion;
+            UserId = userId;
+            ProductId = productId;
         }
     }
 
-    public class CreateInventoryItem : Command {
-        public readonly Guid InventoryItemId;
-        public readonly string Name;
+    public class RemoveFromFavorites : Command
+    {
+        public readonly Guid UserId;
+        public readonly Guid ProductId;
 
-        public CreateInventoryItem(Guid inventoryItemId, string name)
+        public RemoveFromFavorites(Guid productId, Guid userId)
         {
-            InventoryItemId = inventoryItemId;
-            Name = name;
+            UserId = userId;
+            ProductId = productId;
         }
     }
 
-    public class RenameInventoryItem : Command {
-        public readonly Guid InventoryItemId;
-        public readonly string NewName;
-        public readonly int OriginalVersion;
+    public class NotifyWhenProductAvailable : Command
+    {
+        public readonly Guid ProductId;
+        public readonly string Email;
 
-        public RenameInventoryItem(Guid inventoryItemId, string newName, int originalVersion)
+        public NotifyWhenProductAvailable(Guid productId, string email)
         {
-            InventoryItemId = inventoryItemId;
-            NewName = newName;
-            OriginalVersion = originalVersion;
-        }
-    }
-
-    public class CheckInItemsToInventory : Command {
-        public Guid InventoryItemId;
-        public readonly int Count;
-        public readonly int OriginalVersion;
-
-        public CheckInItemsToInventory(Guid inventoryItemId, int count, int originalVersion) {
-            InventoryItemId = inventoryItemId;
-            Count = count;
-            OriginalVersion = originalVersion;
-        }
-    }
-
-    public class RemoveItemsFromInventory : Command {
-        public Guid InventoryItemId;
-        public readonly int Count;
-        public readonly int OriginalVersion;
-
-        public RemoveItemsFromInventory(Guid inventoryItemId, int count, int originalVersion)
-        {
-            InventoryItemId = inventoryItemId;
-            Count = count;
-            OriginalVersion = originalVersion;
+            ProductId = productId;
+            Email = email;
         }
     }
 }
