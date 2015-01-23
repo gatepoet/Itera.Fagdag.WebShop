@@ -7,6 +7,8 @@ namespace Itera.Fagdag.WebShop.Domain
         public int Version;
     }
 
+    #region User
+
     public class UserCreated : Event
     {
         public readonly Guid UserId;
@@ -17,6 +19,10 @@ namespace Itera.Fagdag.WebShop.Domain
         }
     }
 
+    #endregion
+
+    #region Shopping cart
+
     public class CartCreated : Event
     {
         public readonly Guid CartId;
@@ -26,6 +32,7 @@ namespace Itera.Fagdag.WebShop.Domain
             CartId = cartId;
         }
     }
+
     public class CartItemAdded : Event
     {
         public readonly Guid CartId;
@@ -39,6 +46,7 @@ namespace Itera.Fagdag.WebShop.Domain
             Count = count;
         }
     }
+
     public class CartItemRemoved : Event
     {
         public readonly Guid CartId;
@@ -53,6 +61,9 @@ namespace Itera.Fagdag.WebShop.Domain
         }
     }
 
+    #endregion
+
+    #region Favorites
 
     public class AddedToFavorites : Event
     {
@@ -89,5 +100,7 @@ namespace Itera.Fagdag.WebShop.Domain
             Email = email;
         }
     }
+
+    #endregion
 }
 
