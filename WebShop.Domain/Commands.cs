@@ -51,9 +51,9 @@ namespace Itera.Fagdag.WebShop.Domain
     public class AddToFavorites : Command
     {
         public readonly Guid UserId;
-        public readonly Guid ProductId;
+        public readonly int ProductId;
 
-        public AddToFavorites(Guid productId, Guid userId)
+        public AddToFavorites(Guid userId, int productId)
         {
             UserId = userId;
             ProductId = productId;
@@ -63,9 +63,9 @@ namespace Itera.Fagdag.WebShop.Domain
     public class RemoveFromFavorites : Command
     {
         public readonly Guid UserId;
-        public readonly Guid ProductId;
+        public readonly int ProductId;
 
-        public RemoveFromFavorites(Guid productId, Guid userId)
+        public RemoveFromFavorites(Guid userId, int productId)
         {
             UserId = userId;
             ProductId = productId;

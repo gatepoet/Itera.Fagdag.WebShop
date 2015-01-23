@@ -7,6 +7,16 @@ namespace Itera.Fagdag.WebShop.Domain
         public int Version;
     }
 
+    public class UserCreated : Event
+    {
+        public readonly Guid UserId;
+
+        public UserCreated(Guid userId)
+        {
+            UserId = userId;
+        }
+    }
+
     public class CartCreated : Event
     {
         public readonly Guid CartId;
@@ -47,9 +57,9 @@ namespace Itera.Fagdag.WebShop.Domain
     public class AddedToFavorites : Event
     {
         public readonly Guid UserId;
-        public readonly Guid ProductId;
+        public readonly int ProductId;
 
-        public AddedToFavorites(Guid productId, Guid userId)
+        public AddedToFavorites(Guid userId, int productId)
         {
             UserId = userId;
             ProductId = productId;
@@ -59,9 +69,9 @@ namespace Itera.Fagdag.WebShop.Domain
     public class RemovedFromFavorites : Event
     {
         public readonly Guid UserId;
-        public readonly Guid ProductId;
+        public readonly int ProductId;
 
-        public RemovedFromFavorites(Guid productId, Guid userId)
+        public RemovedFromFavorites(Guid userId, int productId)
         {
             UserId = userId;
             ProductId = productId;
