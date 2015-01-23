@@ -246,12 +246,13 @@ namespace Itera.Fagdag.WebShop.Domain
     #endregion
 
 
-    #region 
+    #region Product
 
     public interface IProductReadModelFacade
     {
         ProductDto[] GetAll();
         ProductDto GetById(int id);
+        ProductDto[] GetByCategory(string category);
     }
 
     public class ProductReadModelFacade : IProductReadModelFacade
@@ -264,6 +265,11 @@ namespace Itera.Fagdag.WebShop.Domain
         public ProductDto GetById(int id)
         {
             return ProductDatabase.Products.Single(p => p.Id == id);
+        }
+
+        public ProductDto[] GetByCategory(string category)
+        {
+            return ProductDatabase.Products.Where(x => x.Category == category).ToArray();
         }
     }
 
