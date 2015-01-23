@@ -4,11 +4,13 @@
 ]);
 
 shoebalooWebApp.config(['$routeProvider', function($routeProvider) {
+    var root = 'Scripts/angular/';
+
     $routeProvider.when('/', {
         controller: 'RootController',
-        templateUrl: 'Scripts/angular/views/root.html'
+        templateUrl: root + 'views/root.html'
     }).when('/item', {
         controller: 'ItemController',
-        templateUrl: 'views/item'
+        templateUrl: root + 'views/item.html'
     });
 }]);
