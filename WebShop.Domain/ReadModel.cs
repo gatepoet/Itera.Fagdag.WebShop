@@ -246,12 +246,14 @@ namespace Itera.Fagdag.WebShop.Domain
     #endregion
 
 
-    #region 
+    #region Product
 
     public interface IProductReadModelFacade
     {
         ProductDto[] GetAll();
         ProductDto GetById(int id);
+        ProductDto[] GetByCategory(string category);
+        ProductDto[] GetByBrand(string brand);
     }
 
     public class ProductReadModelFacade : IProductReadModelFacade
@@ -264,6 +266,15 @@ namespace Itera.Fagdag.WebShop.Domain
         public ProductDto GetById(int id)
         {
             return ProductDatabase.Products.Single(p => p.Id == id);
+        }
+
+        public ProductDto[] GetByCategory(string category)
+        {
+            return ProductDatabase.Products.Where(x => x.Category == category).ToArray();
+        }
+        public ProductDto[] GetByBrand(string brand)
+        {
+            return ProductDatabase.Products.Where(x => x.Brand == brand).ToArray();
         }
     }
 
@@ -279,7 +290,7 @@ namespace Itera.Fagdag.WebShop.Domain
 
         private static ProductDto ReadProduct(string path)
         {
-            var lines = File.ReadAllLines(path, Encoding.Default);
+            var lines = File.ReadAllLines(path);
             var id = ParseId(path);
             return ParseProduct(id, lines);
         }
@@ -292,7 +303,12 @@ namespace Itera.Fagdag.WebShop.Domain
                 Price = decimal.Parse(lines[0]),
                 Title = lines[1],
                 Description = lines[2],
-                ImageSource = string.Format("/produkter/{0}.jpg", id)
+                ImageSource = string.Format("/produkter/{0}.jpg", id),
+                Brand = lines[3],
+                Color = lines[4],
+                MinSize = int.Parse(lines[5]),
+                MaxSize = int.Parse(lines[6]),
+                Category = lines[7]
             };
         }
 
