@@ -28,6 +28,18 @@ namespace Itera.Fagdag.WebShop.API
             bus.RegisterHandler<CartCreated>(detail.Handle);
             bus.RegisterHandler<CartItemAdded>(detail.Handle);
             bus.RegisterHandler<CartItemRemoved>(detail.Handle);
+
+            var notifications = new ProductAvailabilityCommandHandlers(
+                new Repository<ProductAvailabilityNotification>(storage));
+            bus.RegisterHandler<RemoveProductAvailabilityNotification>(notifications.Handle);
+            bus.RegisterHandler<AddProductAvailabilityNotification>(notifications.Handle);
+            bus.RegisterHandler<ProductCreated>(notifications.Handle);
+
+            var favorites = new UserFavoriteCommandHandlers(
+                new Repository<UserFavorites>(storage));
+            bus.RegisterHandler<UserCreated>(favorites.Handle);
+            bus.RegisterHandler<AddedToFavorites>(favorites.Handle);
+            bus.RegisterHandler<RemovedFromFavorites>(favorites.Handle);
             ServiceLocator.Bus = bus;
             ProductDatabase.LoadFromDisk(Server.MapPath("~/produkter"));
         }
