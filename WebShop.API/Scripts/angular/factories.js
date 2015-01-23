@@ -7,6 +7,10 @@ shoebalooApp.factory('productFactory', [
             return $http.get('api/products');
         };
 
+        factory.getProduct = function(id) {
+            return $http.get('api/products?id=' + id);
+        }
+
         return factory;
     }
 ]);
