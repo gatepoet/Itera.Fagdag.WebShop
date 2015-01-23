@@ -15,7 +15,7 @@
                 <div class="cl">&nbsp;</div>
                 <ul>
                     <li ng-repeat="product in products | filter:filter">
-                        <div class="image"><a href="#"><img src="{{product.imageSource}}" width="125" /></a></div>
+                        <div class="image"><a href="/#/item?productId={{product.id}}"><img src="{{product.imageSource}}" width="125" /></a></div>
                         <p>{{product.title}}</p>
                         <p class="price">Pris: <strong>{{product.price}},-</strong></p>
                     </li>
@@ -30,7 +30,7 @@
                 <div class="cl">&nbsp;</div>
                 <ul>
                     <li ng-repeat="product in products | filter:{category : 'dame'}">
-                        <div class="image"><a href="#"><img src="{{product.imageSource}}" width="125" /></a></div>
+                        <div class="image"><a href="/#/item?productId={{product.id}}"><img src="{{product.imageSource}}" width="125" /></a></div>
                         <p>{{product.title}}</p>
                         <p class="price">Pris: <strong>{{product.price}},-</strong></p>
                     </li>
@@ -45,7 +45,7 @@
                 <div class="cl">&nbsp;</div>
                 <ul>
                     <li ng-repeat="product in products | filter:{category : 'barn'}">
-                        <div class="image"><a href="#"><img src="{{product.imageSource}}" width="125" /></a></div>
+                        <div class="image"><a href="/#/item?productId={{product.id}}"><img src="{{product.imageSource}}" width="125" /></a></div>
                         <p>{{product.title}}</p>
                         <p class="price">Pris: <strong>{{product.price}},-</strong></p>
                     </li>
