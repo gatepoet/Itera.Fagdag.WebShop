@@ -30,7 +30,7 @@ shoebalooApp.factory('userFactory', [
         };
 
         factory.isLoggedIn = function() {
-            return localStorage.getItem("userId") == null;
+            return localStorage.getItem("userId") !== null;
         }
 
         return factory;
