@@ -29,7 +29,7 @@
             </div>
             <!-- End Header -->
             <!-- Slider -->
-            <div id="slider">
+            <!--<div id="slider">
                 <div id="slider-holder">
                     <ul>
                         <li><a href="#"><img src="Content/images/slide1.jpg" alt="" /></a></li>
@@ -40,7 +40,7 @@
                         <li><a href="#"><img src="Content/images/slide2.jpg" alt="" /></a></li>
                     </ul>
                 </div>
-                <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
+                <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>-->
             </div>
             <!-- End Slider -->
         </div>
@@ -60,7 +60,7 @@
                     </form>
                 </div>
                 <span class="left"><a href="#">Avansert søk</a></span>
-                <div class="right"> <span class="cart"> <a href="#" class="cart-ico">&nbsp;</a> <strong>NOK 0.00</strong> </span> <span class="left more-links"> <a href="#">Handlekurv</a></span> </div>
+                <div class="right"> <span class="cart" ng-controller="ShoppingCartController"> <a href="#" class="cart-ico">&nbsp;</a> <strong> {{price | currency:"NOK: "}}</strong> </span> <span class="left more-links"> <a href="#">Handlekurv</a></span> </div>
             </div>
             <!-- End Search, etc -->
             <!-- Content -->
@@ -76,6 +76,7 @@
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular/main.js"></script>
+    <script src="Scripts/angular/shoppingCart.js"></script>
     <script src="Scripts/angular/factories.js"></script>
     <script src="Scripts/angular/root.js"></script>
     <script src="Scripts/angular/item.js"></script>
