@@ -1,0 +1,78 @@
+﻿<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p>
+        <ul data-bind="foreach: cart().items">
+            <li>
+                <span data-bind="text: count"></span>
+                <span data-bind="text: product.title"></span>
+                <button data-bind="click: $root.removeFromCart" class="btn-xs">- <span class="glyphicon glyphicon-shopping-cart"></span></button>
+            </li>
+        </ul>
+        
+    </p>
+</div>
+<div class="row" data-bind="foreach: products">
+    <div class="col-md-4">
+        <img class="thumbnail" data-bind="attr: {src: imageSource}" />
+        <h2 data-bind="text: title"></h2>
+        <p data-bind="text: description" class="description"></p>
+        <span>NOK <span data-bind="text: price" class="text-center"></span>,-&nbsp;&nbsp;</span>
+        <button data-bind="click: $root.addToCart" class="btn-xs">+ <span class="glyphicon glyphicon-shopping-cart"></span></button>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(function() {
+            var ViewModel = function() {
+                this.cart = ko.observable({});
+                this.products = ko.observableArray([]);
+                this.addToCart = function(item) {
+                    var cart = this.cart();
+                    var url = "/api/shoppingCart/" + cart.id() + "/" + cart.version() + "/add/" + item.id();
+                    $.post(url)
+                        .done(function() {
+                            this.loadCart();
+                        }.bind(this));
+                }.bind(this);
+                this.removeFromCart = function (item) {
+                    var cart = this.cart();
+                    var url = "/api/shoppingCart/" + cart.id() + "/" + cart.version() + "/remove/" + item.product.id();
+                    $.post(url)
+                        .done(function() {
+                            this.loadCart();
+                        }.bind(this));
+                }.bind(this);
+                this.loadCart = function() {
+                    $.getJSON("/api/shoppingCart/0c1983aa-a38d-4641-b504-be56427a0ece")
+                        .done(function(cart) {
+                            var mapping = {
+                                    "items": {
+                                        key: function (data) {
+                                            return ko.utils.unwrapObservable(data.id);
+                                        }
+                                    }
+                                
+                            };
+                            this.cart(ko.mapping.fromJS(cart, mapping));
+                        }.bind(this));
+                }.bind(this);
+            };
+            var viewModel = new ViewModel();
+            viewModel.loadCart();
+            ko.applyBindings(viewModel);
+            $.getJSON("/api/products")
+                .done(function(products) {
+                    var mapping = {
+                        key: function (data) {
+                            return ko.utils.unwrapObservable(data.id);
+                        },
+                    };
+                    ko.mapping.fromJS(products, mapping, viewModel.products);
+
+                });
+        });
+    </script>
+}
