@@ -12,5 +12,8 @@ shoebalooWebApp.config(['$routeProvider', function($routeProvider) {
     }).when('/item', {
         controller: 'ItemController',
         templateUrl: root + 'views/item.html'
+    }).when('/login', {
+        controller: 'LoginController',
+        templateUrl: root + 'views/login.html'
     });
 }]);

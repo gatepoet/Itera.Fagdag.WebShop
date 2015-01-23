@@ -434,9 +434,11 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular\login.js" />
     <Content Include="Scripts\angular\item.js" />
     <Content Include="Scripts\angular\root.js" />
     <Content Include="Scripts\angular\main.js" />
+    <Content Include="Scripts\angular\views\login.html" />
     <Content Include="Scripts\angular\views\root.html" />
     <Content Include="Scripts\angular\views\item.html" />
     <Content Include="Scripts\bootstrap.js" />
