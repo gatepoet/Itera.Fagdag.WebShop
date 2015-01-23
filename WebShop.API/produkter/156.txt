@@ -5,3 +5,4 @@ Echo
 Rød
 22
 39
+Dame

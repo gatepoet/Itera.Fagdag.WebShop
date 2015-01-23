@@ -12,5 +12,6 @@ namespace Itera.Fagdag.WebShop.Domain
         public int MinSize { get; set; }
         public int MaxSize { get; set; }
         public string ImageSource { get; set; }
+        public string Category { get; set; }
     }
 }

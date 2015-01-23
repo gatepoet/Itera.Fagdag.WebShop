@@ -5,3 +5,4 @@ Echo
 Rød
 25
 31
+Dame

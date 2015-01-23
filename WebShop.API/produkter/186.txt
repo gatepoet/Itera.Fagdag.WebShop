@@ -5,3 +5,4 @@ Face
 Hvit
 26
 49
+Dame

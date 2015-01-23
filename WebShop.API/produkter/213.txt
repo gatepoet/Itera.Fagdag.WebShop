@@ -5,3 +5,4 @@ Face
 Hvit
 43
 43
+Dame

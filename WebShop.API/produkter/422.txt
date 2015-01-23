@@ -5,3 +5,4 @@ Face
 Hvit
 46
 46
+Dame
