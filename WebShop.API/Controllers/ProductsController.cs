@@ -24,5 +24,7 @@ namespace Itera.Fagdag.WebShop.API.Controllers
         {
             return _readModelFacade.GetById(id);
         }
+
+
     }
 }
