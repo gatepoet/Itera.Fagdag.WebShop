@@ -246,7 +246,7 @@ namespace Itera.Fagdag.WebShop.Domain
     #endregion
 
 
-    #region 
+    #region Product
 
     public interface IProductReadModelFacade
     {
