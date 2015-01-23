@@ -1,40 +1,98 @@
-﻿<!DOCTYPE html>
-<html ng-app="shoebalooWeb" lang="no">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="shoebalooWeb" lang="no">
 <head>
-    <meta charset="utf-8">
-    <title>Shoebaloo</title>
-    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <title>Wing the Air</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="Content/style.css" type="text/css" media="all" />
+    <!--[if lte IE 6]><style type="text/css" media="screen">.tabbed { height:420px; }</style><![endif]-->
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.jcarousel.pack.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.slide.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-func.js" type="text/javascript"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div>
-                <a href="/">
-                    Shoebaloo
-                </a>
+    <!-- Top -->
+    <div id="top">
+        <div class="shell">
+            <!-- Header -->
+            <div id="header">
+                <!--<h1 id="logo"><a href="#">SHOEBALOO</a></h1>-->
+                <div id="navigation">
+                    <ul>
+                        <li><a href="#">HJEM</a></li>
+                        <li><a href="#">HJELP</a></li>
+                        <li><a href="#">MIN SIDE</a></li>
+                        <li><a href="#">HANDLEKURV</a></li>
+                        <li class="last"><a href="#">KONTAKT OSS</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Hjem</a>
+            <!-- End Header -->
+            <!-- Slider -->
+            <div id="slider">
+                <div id="slider-holder">
+                    <ul>
+                        <li><a href="#"><img src="Content/images/slide1.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="Content/images/slide2.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="Content/images/slide1.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="Content/images/slide2.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="Content/images/slide1.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="Content/images/slide2.jpg" alt="" /></a></li>
+                    </ul>
+                </div>
+                <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" ng-show="isAuthenticated==true">
-
-                    <li><a href="/#/campaign">Kampanje</a></li>
-                    <li><a href="#">Lojalitetskunder</a></li>
-                    <li><a href="/#/sms">Kundekontakt</a></li>
-
-                </ul>
-                <ul class="nav navbar-nav pull-right">
-                    <li><a href="">Logg inn</a></li>
-                </ul>
-            </div>
+            <!-- End Slider -->
         </div>
     </div>
-    <div ng-view class="container" style="margin-top:100px"></div>
+    <!-- Top -->
+    <!-- Main -->
+    <div id="main">
+        <div class="shell">
+            <!-- Search, etc -->
+            <div class="options">
+                <div class="search">
+                    <form action="#" method="post">
+                        <span class="field">
+                            <input type="text" class="blink" value="SØK" title="SEARCH" />
+                        </span>
+                        <input type="text" class="search-submit" value="GO" />
+                    </form>
+                </div>
+                <span class="left"><a href="#">Avansert søk</a></span>
+                <div class="right"> <span class="cart"> <a href="#" class="cart-ico">&nbsp;</a> <strong>NOK 0.00</strong> </span> <span class="left more-links"> <a href="#">Handlekurv</a></span> </div>
+            </div>
+            <!-- End Search, etc -->
+            <!-- Content -->
+            <div id="content">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <ul>
+                        <li><a href="#" class="active"><span>Herre</span></a></li>
+                        <li><a href="#"><span>Damer</span></a></li>
+                        <li><a href="#" class="red"><span>Barn</span></a></li>
+                    </ul>
+                </div>
+                <!-- Tabs -->
+
+                <!-- Container -->
+                <div id="container" ng-view>
+                    
+                    <!-- Brands -->
+                    <!-- End Brands -->
+                    <!-- Footer -->
+                    <div id="footer">
+                        <div class="left"> <a href="#">Hjem</a> <span>|</span> <a href="#">Hjelp</a> <span>|</span> <a href="#">Min Side</a> <span>|</span> <a href="#">Handlekurv</a> <span>|</span> <a href="#">Kontakt oss</a> </div>
+                        <div class="right"> &copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a> </div>
+                    </div>
+                    <!-- End Footer -->
+                </div>
+                <!-- End Container -->
+            </div>
+            <!-- End Content -->
+        </div>
+    </div>
+    <!-- End Main -->
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular/main.js"></script>
@@ -42,3 +100,6 @@
     <script src="Scripts/angular/item.js"></script>
 </body>
 </html>
+
+
+
