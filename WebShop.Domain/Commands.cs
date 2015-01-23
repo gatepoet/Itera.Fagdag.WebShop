@@ -72,12 +72,24 @@ namespace Itera.Fagdag.WebShop.Domain
         }
     }
 
-    public class NotifyWhenProductAvailable : Command
+    public class AddProductAvailabilityNotification : Command
     {
-        public readonly Guid ProductId;
+        public readonly int ProductId;
         public readonly string Email;
 
-        public NotifyWhenProductAvailable(Guid productId, string email)
+        public AddProductAvailabilityNotification(int productId, string email)
+        {
+            ProductId = productId;
+            Email = email;
+        }
+    }
+
+    public class RemoveProductAvailabilityNotification : Command
+    {
+        public readonly int ProductId;
+        public readonly string Email;
+
+        public RemoveProductAvailabilityNotification(int productId, string email)
         {
             ProductId = productId;
             Email = email;

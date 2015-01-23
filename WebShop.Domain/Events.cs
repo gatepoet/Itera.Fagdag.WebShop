@@ -78,15 +78,37 @@ namespace Itera.Fagdag.WebShop.Domain
         }
     }
 
-    public class ProductAvailabilityNotificationAdded : Event
+    public class AddedProductAvailabilityNotification : Event
     {
         public readonly Guid ProductId;
         public readonly string Email;
 
-        public ProductAvailabilityNotificationAdded(Guid productId, string email)
+        public AddedProductAvailabilityNotification(Guid productId, string email)
         {
             ProductId = productId;
             Email = email;
+        }
+    }
+
+    public class RemovedProductAvailabilityNotification : Event
+    {
+        public readonly Guid ProductId;
+        public readonly string Email;
+
+        public RemovedProductAvailabilityNotification(Guid productId, string email)
+        {
+            ProductId = productId;
+            Email = email;
+        }
+    }
+
+    public class ProductCreated : Event
+    {
+        public readonly int ProductId;
+
+        public ProductCreated(int productId)
+        {
+            ProductId = productId;
         }
     }
 }
