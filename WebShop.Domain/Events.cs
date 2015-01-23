@@ -7,6 +7,16 @@ namespace Itera.Fagdag.WebShop.Domain
         public int Version;
     }
 
+    public class UserCreated : Event
+    {
+        public readonly Guid UserId;
+
+        public UserCreated(Guid userId)
+        {
+            UserId = userId;
+        }
+    }
+
     public class CartCreated : Event
     {
         public readonly Guid CartId;
