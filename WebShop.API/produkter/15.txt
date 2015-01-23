@@ -5,3 +5,4 @@ Echo
 Blå
 25
 35
+Dame

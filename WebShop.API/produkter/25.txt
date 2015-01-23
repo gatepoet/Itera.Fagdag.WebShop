@@ -5,3 +5,4 @@ Face
 Hvit
 29
 48
+Barn

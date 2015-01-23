@@ -5,3 +5,4 @@ Face
 Hvit
 35
 35
+Barn

@@ -5,3 +5,4 @@ Puma
 Rød
 30
 30
+Barn

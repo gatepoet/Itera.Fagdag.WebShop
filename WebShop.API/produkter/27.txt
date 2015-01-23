@@ -5,3 +5,4 @@ Face
 Hvit
 30
 36
+Barn

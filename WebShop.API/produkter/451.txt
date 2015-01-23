@@ -5,3 +5,4 @@ Face
 Hvit
 45
 45
+Dame

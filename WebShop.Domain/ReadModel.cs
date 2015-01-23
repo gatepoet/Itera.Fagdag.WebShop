@@ -307,7 +307,8 @@ namespace Itera.Fagdag.WebShop.Domain
                 Brand = lines[3],
                 Color = lines[4],
                 MinSize = int.Parse(lines[5]),
-                MaxSize = int.Parse(lines[6])
+                MaxSize = int.Parse(lines[6]),
+                Category = lines[7]
             };
         }
 
