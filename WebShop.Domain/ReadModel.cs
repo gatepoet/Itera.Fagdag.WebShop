@@ -253,6 +253,7 @@ namespace Itera.Fagdag.WebShop.Domain
         ProductDto[] GetAll();
         ProductDto GetById(int id);
         ProductDto[] GetByCategory(string category);
+        ProductDto[] GetByBrand(string brand);
     }
 
     public class ProductReadModelFacade : IProductReadModelFacade
@@ -270,6 +271,10 @@ namespace Itera.Fagdag.WebShop.Domain
         public ProductDto[] GetByCategory(string category)
         {
             return ProductDatabase.Products.Where(x => x.Category == category).ToArray();
+        }
+        public ProductDto[] GetByBrand(string brand)
+        {
+            return ProductDatabase.Products.Where(x => x.Brand == brand).ToArray();
         }
     }
 
