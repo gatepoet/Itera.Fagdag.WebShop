@@ -199,4 +199,12 @@ namespace Itera.Fagdag.WebShop.Domain
 
     #endregion
 
+    #region User
+
+    public interface IUserReadModelFacade
+    {
+        
+    }
+
+    #endregion
 }

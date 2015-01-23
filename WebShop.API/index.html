@@ -23,7 +23,11 @@
                         <li><a href="#">HJELP</a></li>
                         <li><a href="#">MIN SIDE</a></li>
                         <li><a href="#">HANDLEKURV</a></li>
-                        <li class="last"><a href="#">KONTAKT OSS</a></li>
+                        <li><a href="#">KONTAKT OSS</a></li>
+                        <li class="last" ng-controller="LoginController">
+                            <button ng-hide="isLoggedIn" ng-click="login" title="Login"></button>
+                            <button ng-show="isLoggedIn" ng-click="logout" title="Logout"></button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,8 +44,8 @@
                         <li><a href="#"><img src="Content/images/slide2.jpg" alt="" /></a></li>
                     </ul>
                 </div>
-                <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>-->
-            </div>
+                <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
+            </div>-->
             <!-- End Slider -->
         </div>
     </div>
@@ -80,6 +84,7 @@
     <script src="Scripts/angular/factories.js"></script>
     <script src="Scripts/angular/root.js"></script>
     <script src="Scripts/angular/item.js"></script>
+    <script src="Scripts/angular/login.js"></script>
 </body>
 </html>
 

@@ -17,3 +17,22 @@ shoebalooApp.factory('productFactory', [
         return factory;
     }
 ]);
+shoebalooApp.factory('userFactory', [
+    '$http', function ($http) {
+        var factory = {};
+
+        factory.login = function (email) {
+            var xhr = $http.post('api/user/login/' + email);
+            xhr.success(function(userId) {
+                localStorage.setItem("userId", userId);
+            });
+            return xhr;
+        };
+
+        factory.isLoggedIn = function() {
+            return localStorage.getItem("userId") == null;
+        }
+
+        return factory;
+    }
+]);
