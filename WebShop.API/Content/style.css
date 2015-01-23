@@ -39,7 +39,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 
 .shell { width:980px; margin:0 auto; }
 
-    #top { height:479px; background:#000; }
+    #top {  background:#000; }
 #header { height:61px; }
 
 #slider { width:980px; height:418px; position:relative; overflow:hidden; }
@@ -68,7 +68,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .options span.more-links a{ margin-left:9px;}
 
 .cart { float:left; position:relative; top:2px; }
-.cart strong{ float:left; width:95px; height:36px; background:url(images/cart-price.gif); text-align: right; font-size:20px; color:#701616; line-height:36px; padding:0 7px 0 5px;}
+.cart strong{ float:left; width:135px; height:36px; background:url(images/cart-price.gif);background-position: right; text-align: right; font-size:20px; color:#701616; line-height:36px; padding:0 7px 0 5px;}
 .cart-ico{ float:left; width:47px; height:36px; background:url(images/cart.gif) no-repeat 0 0; font-size:0; line-height:0; text-indent: -4000px;}
 
 #content { padding-top:20px; }

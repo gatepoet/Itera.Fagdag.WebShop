@@ -20,5 +20,8 @@ shoebalooWebApp.config(['$routeProvider', '$locationProvider', function($routePr
     }).when('/login', {
         controller: 'LoginController',
         templateUrl: root + 'views/login.html'
+    }).when('/cart', {
+        controller: 'CartController',
+        templateUrl: root + 'views/cart.html'
     });
 }]);
