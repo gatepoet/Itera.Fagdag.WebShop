@@ -12,10 +12,12 @@ namespace Itera.Fagdag.WebShop.Domain
     public class UserCreated : Event
     {
         public readonly Guid UserId;
+        public readonly string Email;
 
-        public UserCreated(Guid userId)
+        public UserCreated(Guid userId, string email)
         {
             UserId = userId;
+            Email = email;
         }
     }
 
