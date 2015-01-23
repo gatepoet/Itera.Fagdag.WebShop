@@ -6,6 +6,25 @@ namespace Itera.Fagdag.WebShop.Domain
     {
     }
 
+    #region User
+
+    public class CreateUser : Command
+    {
+        public readonly Guid UserId;
+        public readonly string Email;
+
+        public CreateUser(Guid userId, string email)
+        {
+            UserId = userId;
+            Email = email;
+        }
+    }
+
+    #endregion
+
+
+    #region Shopping cart
+
     public class CreateCart : Command
     {
         public readonly Guid CartId;
@@ -47,6 +66,11 @@ namespace Itera.Fagdag.WebShop.Domain
             OriginalVersion = originalVersion;
         }
     }
+
+    #endregion
+
+
+    #region Favorites
 
     public class AddToFavorites : Command
     {
@@ -95,4 +119,6 @@ namespace Itera.Fagdag.WebShop.Domain
             Email = email;
         }
     }
+
+    #endregion
 }
