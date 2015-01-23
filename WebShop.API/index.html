@@ -64,29 +64,9 @@
             </div>
             <!-- End Search, etc -->
             <!-- Content -->
-            <div id="content">
+            <div id="content" ng-view>
                 <!-- Tabs -->
-                <div class="tabs">
-                    <ul>
-                        <li><a href="#" class="active"><span>Herre</span></a></li>
-                        <li><a href="#"><span>Damer</span></a></li>
-                        <li><a href="#" class="red"><span>Barn</span></a></li>
-                    </ul>
-            </div>
-                <!-- Tabs -->
-
-                <!-- Container -->
-                <div id="container" ng-view>
-
-                    <!-- Brands -->
-                    <!-- End Brands -->
-                    <!-- Footer -->
-                    <div id="footer">
-                        <div class="left"> <a href="#">Hjem</a> <span>|</span> <a href="#">Hjelp</a> <span>|</span> <a href="#">Min Side</a> <span>|</span> <a href="#">Handlekurv</a> <span>|</span> <a href="#">Kontakt oss</a> </div>
-                        <div class="right"> &copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a> </div>
-                    </div>
-                    <!-- End Footer -->
-                </div>
+                
                 <!-- End Container -->
             </div>
             <!-- End Content -->
@@ -96,6 +76,7 @@
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular/main.js"></script>
+    <script src="Scripts/angular/factories.js"></script>
     <script src="Scripts/angular/root.js"></script>
     <script src="Scripts/angular/item.js"></script>
 </body>

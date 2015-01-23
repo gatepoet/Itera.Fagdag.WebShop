@@ -3,7 +3,12 @@
     'ngRoute'
 ]);
 
-shoebalooWebApp.config(['$routeProvider', function($routeProvider) {
+shoebalooWebApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
     var root = 'Scripts/angular/';
 
     $routeProvider.when('/', {

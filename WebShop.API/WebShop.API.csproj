@@ -458,6 +458,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular\factories.js" />
     <Content Include="Scripts\angular\login.js" />
     <Content Include="Scripts\angular\item.js" />
     <Content Include="Scripts\angular\root.js" />
