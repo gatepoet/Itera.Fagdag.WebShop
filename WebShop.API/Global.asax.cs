@@ -38,8 +38,8 @@ namespace Itera.Fagdag.WebShop.API
             var favorites = new UserFavoriteCommandHandlers(
                 new Repository<UserFavorites>(storage));
             bus.RegisterHandler<UserCreated>(favorites.Handle);
-            bus.RegisterHandler<AddedToFavorites>(favorites.Handle);
-            bus.RegisterHandler<RemovedFromFavorites>(favorites.Handle);
+            bus.RegisterHandler<AddToFavorites>(favorites.Handle);
+            bus.RegisterHandler<RemoveFromFavorites>(favorites.Handle);
             ServiceLocator.Bus = bus;
             ProductDatabase.LoadFromDisk(Server.MapPath("~/produkter"));
         }

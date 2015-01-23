@@ -26,7 +26,7 @@ namespace Itera.Fagdag.WebShop.Domain
             _repository.Save(new UserFavorites(message.UserId), -1);
         }
 
-        public void Handle(AddedToFavorites message)
+        public void Handle(AddToFavorites message)
         {
             var favorites = _repository.GetById(message.UserId);
             var version = favorites.Version;
@@ -34,7 +34,7 @@ namespace Itera.Fagdag.WebShop.Domain
             _repository.Save(favorites, version);
         }
 
-        public void Handle(RemovedFromFavorites message)
+        public void Handle(RemoveFromFavorites message)
         {
             var favorites = _repository.GetById(message.UserId);
             var version = favorites.Version;
