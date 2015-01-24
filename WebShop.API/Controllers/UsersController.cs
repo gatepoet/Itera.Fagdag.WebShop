@@ -6,6 +6,12 @@ namespace Itera.Fagdag.WebShop.API.Controllers
 {
     public class UsersController : ApiController
     {
+        [Route("api/users/login/{email}")]
+        public Guid Login(string email)
+        {
+            return Guid.NewGuid();
+        }
+
         [Route("api/users/create/{email}")]
         public IHttpActionResult Create(string email)
         {
