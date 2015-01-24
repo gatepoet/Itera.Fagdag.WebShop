@@ -22,15 +22,19 @@ shoebalooApp.factory('userFactory', [
         var factory = {};
 
         factory.login = function (email) {
-            var xhr = $http.post('api/user/login/' + email);
+            var xhr = $http.post('api/users/login/' + email);
             xhr.success(function(userId) {
-                localStorage.setItem("userId", userId);
+                sessionStorage.setItem('userId', userId);
             });
             return xhr;
         };
 
+        factory.logout = function () {
+            sessionStorage.removeItem('userId');
+        }
+
         factory.isLoggedIn = function() {
-            return localStorage.getItem("userId") !== null;
+            return sessionStorage.getItem('userId') !== null;
         }
 
         return factory;

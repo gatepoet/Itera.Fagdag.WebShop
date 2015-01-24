@@ -8,4 +8,8 @@ shoebalooApp.controller('LoginController', ['$scope', 'userFactory', function ($
             $scope.isLoggedIn = true;
         });
     };
+    $scope.logout = function() {
+        userFactory.logout();
+        $scope.isLoggedIn = false;
+    };
 }]);
