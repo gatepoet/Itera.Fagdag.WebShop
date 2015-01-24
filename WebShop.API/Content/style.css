@@ -77,16 +77,23 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .tabs ul{ list-style-type: none; font-size:14px; text-transform: uppercase; font-weight: bold; }
 .tabs ul li{ float:left; display:inline; margin-right:1px; }
 .tabs ul li a,
-.tabs ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 -37px; padding:0 0 0 20px;}
-.tabs ul li a span { background-position:right -37px; padding:0 20px 0 0;}
-.tabs ul li a { position:relative; line-height:36px; color:#ffffff; }
+.tabs ul li a span { float:left; height:36px; }
+.tabs ul li a { 
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px; 
+}
+.tabs ul li a {background-color:#000000; padding:0px 20px;  position:relative; line-height:36px; color:#ffffff; }
 
 
 .tabs ul li a.red { background-position:0 -74px; color:#fff; }
 .tabs ul li a.red span{ background-position:right -74px;}
 
 .tabs ul li a.active,
-.tabs ul li a:hover { background-position:0 0; color:#4f4f4f; }
+.tabs ul li a:hover { background-color:#ffffff; color:#4f4f4f; }
 .tabs ul li a.active span,
 .tabs ul li a:hover span{ background-position:right 0;}
 
