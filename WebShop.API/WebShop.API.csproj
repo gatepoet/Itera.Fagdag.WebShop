@@ -502,7 +502,8 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <None Include="Properties\PublishProfiles\shoebaloo.pubxml" />
+    <None Include="Properties\PublishProfiles\shoebaloo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shoebaloo - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_nb-no.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
