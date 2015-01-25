@@ -37,6 +37,7 @@ namespace Itera.Fagdag.WebShop.API.Controllers
             };
         }
 
+        [HttpPost]
         [Route("api/shoppingCart/{id}/{version}/add/{productId}")]
         public IHttpActionResult AddToCart(
             Guid id,
@@ -54,6 +55,7 @@ namespace Itera.Fagdag.WebShop.API.Controllers
 
             return Ok();
         }
+        [HttpDelete]
         [Route("api/shoppingCart/{id}/{version}/remove/{productId}")]
         public IHttpActionResult RemoveFromCart(
             Guid id,

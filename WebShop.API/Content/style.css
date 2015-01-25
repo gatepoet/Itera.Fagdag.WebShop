@@ -128,3 +128,5 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .product-detail .cart { border-radius: 10px; overflow: hidden;}
 .product-detail .cart input { font-size: 15px;width: 35px;}
 .product-detail footer p { font-size: 20px; margin-top: 12px;}
+.input-mini {  font-size: 15px;width: 35px;}
+
