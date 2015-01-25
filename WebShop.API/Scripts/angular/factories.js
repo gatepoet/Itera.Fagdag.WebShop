@@ -40,3 +40,45 @@ shoebalooApp.factory('userFactory', [
         return factory;
     }
 ]);
+shoebalooApp.factory('shoppingCartFactory', [
+    '$http', '$rootScope', function($http, $rootScope) {
+        var factory = {};
+        var _cartId = sessionStorage.getItem('cartId');
+        var _version = 0;
+
+        factory.get = function () {
+            var url = 'api/shoppingCart/';
+            if (_cartId != null) {
+                url += _cartId;
+            }
+            var xhr = $http.get(url);
+            xhr.success(function (cart) {
+                _cartId = cart.id;
+                _version = cart.version;
+                sessionStorage.setItem('cartId', cart.id);
+            });
+            return xhr;
+        }
+
+        factory.addProduct = function (productId, count) {
+            var url = 'api/shoppingCart/' + _cartId + '/' + _version + '/add/' + productId + '?count=' + count;
+            var xhr = $http.post(url);
+            xhr.success(function() {
+                $rootScope.$broadcast("ShoppingCartUpdated");
+            });
+            return xhr;
+        }
+        factory.removeProduct = function (productId, count) {
+            var url = 'api/shoppingCart/' + _cartId + '/' + _version + '/remove/' + productId + '?count=' + count;
+            var xhr = $http.delete(url);
+            xhr.success(function () {
+                $rootScope.$broadcast("ShoppingCartUpdated");
+            });
+            return xhr;
+        }
+
+        factory.get();
+
+        return factory;
+    }
+])

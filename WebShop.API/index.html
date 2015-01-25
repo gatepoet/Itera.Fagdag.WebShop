@@ -25,8 +25,8 @@
                         <li><a href="#">HANDLEKURV</a></li>
                         <li><a href="#">KONTAKT OSS</a></li>
                         <li class="last" ng-controller="LoginController">
-                            <a ng-hide="isLoggedIn" href="javascript:void(0)" ng-click="login()">LOGIN</a>
-                            <a ng-show="isLoggedIn" href="javascript:void(0)" ng-click="logout()">LOGOUT</a>
+                            <a ng-hide="isLoggedIn" ng-click="login()">LOGIN</a>
+                            <a ng-show="isLoggedIn" ng-click="logout()">LOGOUT</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
                     </form>
                 </div>
                 <span class="left"><a href="#">Avansert søk</a></span>
-                <div class="right"> <span class="cart" ng-controller="ShoppingCartController"> <a href="#" class="cart-ico">&nbsp;</a> <strong> {{price | currency:"NOK: "}}</strong> </span> <span class="left more-links"> <a href="#">Handlekurv</a></span> </div>
+                <div class="right"> <span class="cart" ng-controller="ShoppingCartController"> <a href="#" class="cart-ico">&nbsp;</a> <strong> {{total | currency:'NOK ':0}}</strong> </span> <span class="left more-links"> <a href="#">Handlekurv</a></span> </div>
             </div>
             <!-- End Search, etc -->
             <!-- Content -->

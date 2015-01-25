@@ -1,1 +1,18 @@
-﻿<div class="container">{{productId}}<br/>{{product.title}}</div>
+﻿<div class="container product-detail">
+    <h1 class="title">{{product.title}}</h1>
+    <img src="{{product.imageSource}}" alt="" />
+    <p>{{product.description}}</p>
+    <footer>
+        <p class="price left">Pris: <strong>{{product.price}},-</strong></p>
+        <span class="right">
+            <a class="cart" ng-click="addToCart()">
+                <span class="cart-ico">&nbsp;</span>
+                <strong>
+                    Legg til
+                    &nbsp;&nbsp;
+                    <input type="number" min="1" ng-model="count" ng-click="$event.stopPropagation()" />
+                </strong>
+            </a>
+        </span>
+    </footer>
+</div>
