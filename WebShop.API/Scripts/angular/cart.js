@@ -1,6 +1,6 @@
 ﻿var shoebalooApp = angular.module('shoebalooWeb');
 
-shoebalooApp.controller('CartController', ['$scope', '$routeParams', 'shoppingCartFactory', function ($scope, $routeParams, shoppingCartFactory) {
+shoebalooApp.controller('CartController', ['$scope', '$routeParams', '$location', 'shoppingCartFactory', function ($scope, $routeParams, $location, shoppingCartFactory) {
 
     $scope.cartId = $routeParams.cartId || 0;
     $scope.total = 0;
@@ -24,6 +24,9 @@ shoebalooApp.controller('CartController', ['$scope', '$routeParams', 'shoppingCa
         shoppingCartFactory.removeProduct(item.product.id, item.count).success(function () {
             init();
         });
+    };
+    $scope.checkOut = function() {
+        $location.path('/cart/checkout/shipping');
     };
     function init() {
         shoppingCartFactory.get().success(function (cart) {

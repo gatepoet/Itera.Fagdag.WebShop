@@ -22,5 +22,19 @@ shoebalooWebApp.config(['$routeProvider', '$locationProvider', function($routePr
     }).when('/cart', {
         controller: 'CartController',
         templateUrl: root + 'views/cart.html'
+    }).when('/cart/checkout/shipping', {
+        controller: 'ShippingController',
+        templateUrl: root + 'views/shipping.html'
+    }).when('/cart/checkout/payment', {
+        controller: 'PaymentController',
+        templateUrl: root + 'views/payment.html'
     });
 }]);
+
+requirejs.config({
+    paths: {
+        'bring': 'http://fraktguide.bring.no/fraktguide/js/utleveringsenhet-1.0.1',
+        'google-maps': 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap',
+        'paymill-bridge': 'https://bridge.paymill.com/?',
+    }
+});

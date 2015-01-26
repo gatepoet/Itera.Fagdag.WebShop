@@ -45,14 +45,24 @@ shoebalooApp.factory('shoppingCartFactory', [
         var factory = {};
         var _cartId = sessionStorage.getItem('cartId');
         var _version = 0;
-
+        var _cart = null;
         factory.get = function () {
+            if (_cart) {
+                return {
+                    success: function(func) { func(_cart); },
+                    error: function(func) { },
+                };
+            }
             var url = 'api/shoppingCart/';
-            if (_cartId != null) {
+            if (_cartId) {
                 url += _cartId;
             }
             var xhr = $http.get(url);
             xhr.success(function (cart) {
+                cart.total = cart.items.reduce(function (total, currentItem) {
+                    return total + (currentItem.count * currentItem.product.price);
+                }, 0);
+                _cart = cart;
                 _cartId = cart.id;
                 _version = cart.version;
                 sessionStorage.setItem('cartId', cart.id);
@@ -64,6 +74,7 @@ shoebalooApp.factory('shoppingCartFactory', [
             var url = 'api/shoppingCart/' + _cartId + '/' + _version + '/add/' + productId + '?count=' + count;
             var xhr = $http.post(url);
             xhr.success(function() {
+                _cart = null;
                 $rootScope.$broadcast("ShoppingCartUpdated");
             });
             return xhr;
@@ -72,6 +83,7 @@ shoebalooApp.factory('shoppingCartFactory', [
             var url = 'api/shoppingCart/' + _cartId + '/' + _version + '/remove/' + productId + '?count=' + count;
             var xhr = $http.delete(url);
             xhr.success(function () {
+                _cart = null;
                 $rootScope.$broadcast("ShoppingCartUpdated");
             });
             return xhr;

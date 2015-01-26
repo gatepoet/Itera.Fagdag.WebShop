@@ -125,8 +125,12 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .product-detail { background-color: #ffffff; border-radius: 5px; display: inline-block; }
 .product-detail img { min-width: 200px; max-width: 100%; border-radius: 5px; }
 .product-detail .title { margin-top: 20px; margin-left: 20px;}
-.product-detail .cart { border-radius: 10px; overflow: hidden;}
+#container .cart { border-radius: 10px; overflow: hidden;}
 .product-detail .cart input { font-size: 15px;width: 35px;}
 .product-detail footer p { font-size: 20px; margin-top: 12px;}
 .input-mini {  font-size: 15px;width: 35px;}
 
+.payment-method li { list-style: none; }
+.payment-method iframe { display: none; }
+.payment-method img { max-width: 150px;cursor: pointer; }
+.payment-method .selected { border: #1561a9 2px solid; }

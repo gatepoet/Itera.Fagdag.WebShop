@@ -1,47 +1,40 @@
-﻿<div class="container">
-
-    <h2>Handlekurv</h2>
+﻿<div id="container">
     
-    <table class="table">
-        <tr>
-            <th>Navn</th>
-            <th>Antall</th>
-            <th>Pris</th>
-            <th>Sum</th> 
-            <th></th>
-        </tr>
-        <tr ng:repeat="item in items">
-            <td>{{ item.product.title }}</td>
-            <td>
-                {{ item.count }}
-                <a ng:click="add(item)">[+]</a>
-                <a ng:click="remove(item)">[-]</a>
-            </td>
-            <td>{{ item.product.price}},-</td>
-            <td>{{ item.product.price * item.count | currency:'':0}},-</td>
-            <td>
-                <a ng:click="removeItem(item)">[X]</a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3"><strong>Totalt</strong></td>
-            <td>{{ total | currency:'':0}},-</td>
-        </tr>
-    </table>
-    <form action="javascript:void(0)" method=" post">
-        <script src="https://bridge.paymill.com/"></script>
-        <script src="https://button.paymill.com/v1/"
-                id="button"
-                data-label="Fullfør"
-                data-title="Buy our product"
-                data-description="It's a great product"
-                data-submit-button="Betal {{total | currency}}"
-                data-amount="{{total}}"
-                data-currency="NOK"
-                data-public-key="12017491561fc991f31d303c41ee01ae"
-                data-elv="false"
-                data-logo="Content/images/logo.gif">
-        </script>
-    </form>
+    <div class="left">
+        <h2>Handlekurv</h2>
+
+        <table class="table">
+            <tr>
+                <th>Navn</th>
+                <th>Antall</th>
+                <th>Pris</th>
+                <th>Sum</th>
+                <th></th>
+            </tr>
+            <tr ng:repeat="item in items">
+                <td>{{ item.product.title }}</td>
+                <td>
+                    {{ item.count }}
+                    <a ng:click="add(item)">[+]</a>
+                    <a ng:click="remove(item)">[-]</a>
+                </td>
+                <td>{{ item.product.price}},-</td>
+                <td>{{ item.product.price * item.count | currency:'':0}},-</td>
+                <td>
+                    <a ng:click="removeItem(item)">[X]</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Totalt</strong></td>
+                <td>{{ total | currency:'':0}},-</td>
+            </tr>
+        </table>
+    </div>
+    <a ng:click="checkOut()" class="cart">
+        <span class="cart-ico">&nbsp;</span>
+        <strong>
+            Sjekk ut &rarr;
+        </strong>
+    </a>
 </div>
 

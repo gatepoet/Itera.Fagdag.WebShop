@@ -1,0 +1,28 @@
+﻿<div id="container">
+    <ul class="payment-method left">
+        <li ng:click="selectMethod('paymill')" ng:class="{selected: method == 'paymill'}"><img src="/Content/images/VisaMaster.png"/></li>
+        <li ng:click="selectMethod('klarna-konto')" ng:class="{selected: method == 'klarna-konto'}"><img src="/Content/images/NO_account_badge_std_blue.png" /></li>
+        <li ng:click="selectMethod('klarna-faktura')" ng:class="{selected: method == 'klarna-faktura'}"><img src="/Content/images/NO_invoice_badge_std_blue.png" /></li>
+    </ul>
+    <div ng:show="method == 'klarna-faktura' || method == 'klarna-konto'">
+        Personnummer: <input type="text" />
+        Mobiltelefon: <input type="text" />
+    </div>
+    <div ng:show="method == 'klarna-konto'"></div>
+    <div ng:show="method == 'paymill'">
+        <form action="javascript:void(0)" method=" post">
+            <script src="https://button.paymill.com/v1/"
+                    id="button"
+                    data-label="Betal"
+                    data-title="Betal med kort"
+                    data-description="{{total | currency}}"
+                    data-submit-button="Betal {{total | currency}}"
+                    data-amount="{{total}}"
+                    data-currency="NOK"
+                    data-public-key="12017491561fc991f31d303c41ee01ae"
+                    data-elv="false"
+                    data-logo="Content/images/logo.gif">
+            </script>
+        </form>
+    </div>
+</div>
