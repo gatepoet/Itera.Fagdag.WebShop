@@ -165,6 +165,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -542,6 +543,10 @@
     <ProjectReference Include="..\WebShop.Domain\WebShop.Domain.csproj">
       <Project>{CF91E5E2-362C-4F16-994D-89D010DCBCC8}</Project>
       <Name>WebShop.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebShop.ReadModel\WebShop.ReadModel.csproj">
+      <Project>{B7B61C0B-F154-46D5-B197-76B02C8BA6A2}</Project>
+      <Name>WebShop.ReadModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -4,22 +4,30 @@ shoebalooApp.controller('ShippingController', ['$scope', '$location', 'shoppingC
 
     $scope.next = function() {
         var pickupPoint = $('input[name="pickuppoint"]:checked', '#pickup-point');
+        if (pickupPoint.length == 0) {
+            alert('Du må velge utleveringspunkt.');
+            return;
+        }
         var id = pickupPoint.val().split(';')[0];
-        console.log(pickupPoint);
+        console.log(id);
+        
         $location.path('/cart/checkout/payment');
     }
 
     function init() {
-        requirejs(['bring', 'google-maps']);
+        if (require.defined('bring') && require.defined('google-maps')) {
+            initializeMap();
+        } else {
+            requirejs(['bring'], function() { requirejs(['google-maps']); });
+        }
     }
 
     init();
 }]);
-var pp;
 function initializeMap() {
-    pp = $("#pickup-point").utleveringsenhet({
+    $("#pickup-point").utleveringsenhet({
         googleMaps: true,
-        mapHeight: 400,
-        mapWidth: 400
+        mapHeight: 303,
+        mapWidth: 303
     });
 }

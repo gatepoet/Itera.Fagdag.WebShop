@@ -25,8 +25,11 @@ shoebalooApp.controller('CartController', ['$scope', '$routeParams', '$location'
             init();
         });
     };
-    $scope.checkOut = function() {
-        $location.path('/cart/checkout/shipping');
+    $scope.checkOut = function () {
+        shoppingCartFactory.checkOut()
+            .success(function() {
+                $location.path('/cart/checkout/shipping');
+            });
     };
     function init() {
         shoppingCartFactory.get().success(function (cart) {

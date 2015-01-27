@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Net.Sockets;
 using System.Web.Http;
-using System.Web.Http.Results;
-using Itera.Fagdag.WebShop.Domain;
+using Itera.Fagdag.WebShop.Domain.ShoppingCart;
+using Itera.Fagdag.WebShop.ReadModel;
 
 namespace Itera.Fagdag.WebShop.API.Controllers
 {
@@ -68,6 +67,20 @@ namespace Itera.Fagdag.WebShop.API.Controllers
                 cartId: id,
                 productId: productId,
                 count: count.Value,
+                originalVersion: version);
+
+            ServiceLocator.Bus.Send(command);
+
+            return Ok();
+        }
+        [HttpPost]
+        [Route("api/shoppingCart/{id}/{version}/checkout")]
+        public IHttpActionResult Checkout(
+            Guid id,
+            int version)
+        {
+            var command = new CheckOutCart(
+                cartId: id,
                 originalVersion: version);
 
             ServiceLocator.Bus.Send(command);

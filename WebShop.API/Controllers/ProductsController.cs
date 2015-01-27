@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-using Itera.Fagdag.WebShop.Domain;
+using Itera.Fagdag.WebShop.ReadModel;
 
 namespace Itera.Fagdag.WebShop.API.Controllers
 {

@@ -3,6 +3,12 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Itera.Fagdag.WebShop.Domain;
+using Itera.Fagdag.WebShop.Domain.Infrastructure;
+using Itera.Fagdag.WebShop.Domain.Order;
+using Itera.Fagdag.WebShop.Domain.ShoppingCart;
+using Itera.Fagdag.WebShop.Domain.User;
+using Itera.Fagdag.WebShop.Domain.UserFavorites;
+using Itera.Fagdag.WebShop.ReadModel;
 
 namespace Itera.Fagdag.WebShop.API
 {
@@ -19,15 +25,19 @@ namespace Itera.Fagdag.WebShop.API
             var bus = new FakeBus();
 
             var storage = new EventStore(bus);
-            var rep = new Repository<ShoppingCart>(storage);
-            var commands = new ShoppingCartCommandHandlers(rep);
-            bus.RegisterHandler<CreateCart>(commands.Handle);
-            bus.RegisterHandler<AddCartItem>(commands.Handle);
-            bus.RegisterHandler<RemoveCartItem>(commands.Handle);
-            var detail = new ShoppingCartView();
-            bus.RegisterHandler<CartCreated>(detail.Handle);
-            bus.RegisterHandler<CartItemAdded>(detail.Handle);
-            bus.RegisterHandler<CartItemRemoved>(detail.Handle);
+
+            var order = new OrderCommandHandlers(
+                new Repository<Order>(storage));
+            bus.RegisterHandler<CreateOrder>(order.Handle);
+            bus.RegisterHandler<SelectBringPickupPoint>(order.Handle);
+            bus.RegisterHandler<ConfirmPayButtonPayment>(order.Handle);
+
+            var shoppingCart = new ShoppingCartCommandHandlers(
+                new Repository<ShoppingCart>(storage));
+            bus.RegisterHandler<CreateCart>(shoppingCart.Handle);
+            bus.RegisterHandler<AddCartItem>(shoppingCart.Handle);
+            bus.RegisterHandler<RemoveCartItem>(shoppingCart.Handle);
+            bus.RegisterHandler<CheckOutCart>(shoppingCart.Handle);
 
             var notifications = new ProductAvailabilityCommandHandlers(
                 new Repository<ProductAvailabilityNotification>(storage));
@@ -40,6 +50,13 @@ namespace Itera.Fagdag.WebShop.API
             bus.RegisterHandler<UserCreated>(favorites.Handle);
             bus.RegisterHandler<AddToFavorites>(favorites.Handle);
             bus.RegisterHandler<RemoveFromFavorites>(favorites.Handle);
+
+
+            var detail = new ShoppingCartView();
+            bus.RegisterHandler<CartCreated>(detail.Handle);
+            bus.RegisterHandler<CartItemAdded>(detail.Handle);
+            bus.RegisterHandler<CartItemRemoved>(detail.Handle);
+
             ServiceLocator.Bus = bus;
             ProductDatabase.LoadFromDisk(Server.MapPath("~/produkter"));
         }

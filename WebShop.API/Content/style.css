@@ -134,3 +134,5 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .payment-method iframe { display: none; }
 .payment-method img { max-width: 150px;cursor: pointer; }
 .payment-method .selected { border: #1561a9 2px solid; }
+
+    

@@ -43,6 +43,15 @@ shoebalooApp.factory('userFactory', [
 shoebalooApp.factory('shoppingCartFactory', [
     '$http', '$rootScope', function($http, $rootScope) {
         var factory = {};
+
+//        factory.get = function ()
+
+        return factory;
+    }
+]);
+shoebalooApp.factory('shoppingCartFactory', [
+    '$http', '$rootScope', function($http, $rootScope) {
+        var factory = {};
         var _cartId = sessionStorage.getItem('cartId');
         var _version = 0;
         var _cart = null;
@@ -82,6 +91,17 @@ shoebalooApp.factory('shoppingCartFactory', [
         factory.removeProduct = function (productId, count) {
             var url = 'api/shoppingCart/' + _cartId + '/' + _version + '/remove/' + productId + '?count=' + count;
             var xhr = $http.delete(url);
+            xhr.success(function () {
+                _cart = null;
+                $rootScope.$broadcast("ShoppingCartUpdated");
+            });
+            return xhr;
+        }
+
+        factory.checkOut = function()
+        {
+            var url = 'api/shoppingCart/' + _cartId + '/' + _version + '/checkout';
+            var xhr = $http.post(url);
             xhr.success(function () {
                 _cart = null;
                 $rootScope.$broadcast("ShoppingCartUpdated");
