@@ -4,9 +4,9 @@ namespace Itera.Fagdag.WebShop.Domain.ShoppingCart
 {
     public class ShoppingCartCommandHandlers
     {
-        private readonly IRepository<ShoppingCart> _repository;
+        private readonly IAggregateRepository<ShoppingCart> _repository;
 
-        public ShoppingCartCommandHandlers(IRepository<ShoppingCart> repository)
+        public ShoppingCartCommandHandlers(IAggregateRepository<ShoppingCart> repository)
         {
             _repository = repository;
         }

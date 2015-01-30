@@ -1,6 +1,6 @@
 using Itera.Fagdag.WebShop.Domain.Infrastructure;
 
-namespace Itera.Fagdag.WebShop.Domain
+namespace Itera.Fagdag.WebShop.Domain.ProductAvailabilityNotifications
 {
     public class RemoveProductAvailabilityNotification : Command
     {

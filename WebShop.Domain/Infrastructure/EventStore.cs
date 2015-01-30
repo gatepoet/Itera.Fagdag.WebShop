@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 
 namespace Itera.Fagdag.WebShop.Domain.Infrastructure
 {
@@ -30,7 +31,7 @@ namespace Itera.Fagdag.WebShop.Domain.Infrastructure
 
         private readonly Dictionary<Guid, List<EventDescriptor>> _current = new Dictionary<Guid, List<EventDescriptor>>();
 
-        public void SaveEvents(Guid aggregateId, IEnumerable<Event> events, int expectedVersion)
+        public void SaveEvents(Guid aggregateId, IEnumerable<Event> events, int expectedVersion, bool publish = true) 
         {
             List<EventDescriptor> eventDescriptors;
 
@@ -58,8 +59,12 @@ namespace Itera.Fagdag.WebShop.Domain.Infrastructure
                 // push event to the event descriptors list for current aggregate
                 eventDescriptors.Add(new EventDescriptor(aggregateId,@event,i));
 
-                // publish current event to the bus for further processing by subscribers
-                _publisher.Publish(@event);
+
+                if (publish)
+                {
+                    // publish current event to the bus for further processing by subscribers
+                    _publisher.Publish(@event);
+                }
             }
         }
 

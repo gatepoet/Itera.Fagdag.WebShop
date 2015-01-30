@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checkout\Checkout.cs" />
+    <Compile Include="Checkout\CheckoutHandlers.cs" />
+    <Compile Include="Infrastructure\IAggregateRepository.cs" />
+    <Compile Include="Infrastructure\Saga.cs" />
+    <Compile Include="Infrastructure\SagaRepository.cs" />
     <Compile Include="ShoppingCart\AddCartItem.cs" />
     <Compile Include="ProductAvailabilityNotifications\AddedProductAvailabilityNotification.cs" />
     <Compile Include="UserFavorites\AddedToFavorites.cs" />
@@ -73,7 +78,7 @@
     <Compile Include="Infrastructure\IEventStore.cs" />
     <Compile Include="Infrastructure\PrivateReflectionDynamicObject.cs" />
     <Compile Include="Order\IVerifyPayButtonPayment.cs" />
-    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\ISagaRepository.cs" />
     <Compile Include="Order\Order.cs" />
     <Compile Include="Order\OrderCommandHandlers.cs" />
     <Compile Include="Order\OrderCreated.cs" />
@@ -92,7 +97,7 @@
     <Compile Include="ProductAvailabilityNotifications\RemovedProductAvailabilityNotification.cs" />
     <Compile Include="UserFavorites\RemoveFromFavorites.cs" />
     <Compile Include="ProductAvailabilityNotifications\RemoveProductAvailabilityNotification.cs" />
-    <Compile Include="Infrastructure\Repository.cs" />
+    <Compile Include="Infrastructure\AggregateRepository.cs" />
     <Compile Include="Order\SelectBringPickupPoint.cs" />
     <Compile Include="ShoppingCart\ShoppingCart.cs" />
     <Compile Include="ShoppingCart\ShoppingCartCommandHandlers.cs" />

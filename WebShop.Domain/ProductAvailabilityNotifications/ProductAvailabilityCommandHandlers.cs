@@ -1,12 +1,13 @@
 using Itera.Fagdag.WebShop.Domain.Infrastructure;
+using Itera.Fagdag.WebShop.Domain.Products;
 
-namespace Itera.Fagdag.WebShop.Domain
+namespace Itera.Fagdag.WebShop.Domain.ProductAvailabilityNotifications
 {
     public class ProductAvailabilityCommandHandlers
     {
-        private readonly IRepository<ProductAvailabilityNotification> _repository;
+        private readonly IAggregateRepository<ProductAvailabilityNotification> _repository;
 
-        public ProductAvailabilityCommandHandlers(IRepository<ProductAvailabilityNotification> repository)
+        public ProductAvailabilityCommandHandlers(IAggregateRepository<ProductAvailabilityNotification> repository)
         {
             _repository = repository;
         }

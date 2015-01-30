@@ -5,9 +5,9 @@ namespace Itera.Fagdag.WebShop.Domain.UserFavorites
 {
     public class UserFavoriteCommandHandlers
     {
-        private readonly IRepository<UserFavorites> _repository;
+        private readonly IAggregateRepository<UserFavorites> _repository;
 
-        public UserFavoriteCommandHandlers(IRepository<UserFavorites> repository)
+        public UserFavoriteCommandHandlers(IAggregateRepository<UserFavorites> repository)
         {
             _repository = repository;
         }

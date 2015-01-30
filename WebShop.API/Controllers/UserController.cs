@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Web.Http;
-using Itera.Fagdag.WebShop.Domain;
 using Itera.Fagdag.WebShop.Domain.User;
 using Itera.Fagdag.WebShop.Domain.UserFavorites;
 
 namespace Itera.Fagdag.WebShop.API.Controllers
 {
-    public class UsersController : ApiController
+    public class UserController : ApiController
     {
-        [Route("api/users/login/{email}")]
+        [Route("api/user/login/{email}")]
         public Guid Login(string email)
         {
             return Guid.NewGuid();
         }
 
-        [Route("api/users/create/{email}")]
+        [Route("api/user/create/{email}")]
         public IHttpActionResult Create(string email)
         {
             ServiceLocator.Bus.Send(new CreateUser(Guid.NewGuid(), email));
@@ -22,7 +21,7 @@ namespace Itera.Fagdag.WebShop.API.Controllers
             return Ok();
         }
 
-        [Route("api/users/{id}/favorites/add/{productId}")]
+        [Route("api/user/{id}/favorites/add/{productId}")]
         public IHttpActionResult AddToFavorites(Guid id, int productId)
         {
             ServiceLocator.Bus.Send(new AddToFavorites(id, productId));
@@ -30,7 +29,7 @@ namespace Itera.Fagdag.WebShop.API.Controllers
             return Ok();
         }
 
-        [Route("api/users/{id}/favorites/remove/{productId}")]
+        [Route("api/user/{id}/favorites/remove/{productId}")]
         public IHttpActionResult RemoveFromFavorites(Guid id, int productId)
         {
             ServiceLocator.Bus.Send(new AddToFavorites(id, productId));

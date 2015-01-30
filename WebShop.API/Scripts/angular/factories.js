@@ -22,7 +22,7 @@ shoebalooApp.factory('userFactory', [
         var factory = {};
 
         factory.login = function (email) {
-            var xhr = $http.post('api/users/login/' + email);
+            var xhr = $http.post('api/user/login/' + email);
             xhr.success(function(userId) {
                 sessionStorage.setItem('userId', userId);
             });

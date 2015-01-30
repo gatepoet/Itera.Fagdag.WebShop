@@ -5,13 +5,13 @@ using Itera.Fagdag.WebShop.ReadModel;
 
 namespace Itera.Fagdag.WebShop.API.Controllers
 {
-    public class CartController : ApiController
+    public class ShoppingCartController : ApiController
     {
         private readonly IShoppingCartReadModelFacade _shoppingReadModel;
 
-        public CartController() : this(new ShoppingCartReadModelFacade()) { }
+        public ShoppingCartController() : this(new ShoppingCartReadModelFacade()) { }
 
-        public CartController(IShoppingCartReadModelFacade shoppingReadModel)
+        public ShoppingCartController(IShoppingCartReadModelFacade shoppingReadModel)
         {
             _shoppingReadModel = shoppingReadModel;
         }

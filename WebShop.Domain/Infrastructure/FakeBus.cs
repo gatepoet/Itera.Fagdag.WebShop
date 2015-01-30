@@ -25,7 +25,7 @@ namespace Itera.Fagdag.WebShop.Domain.Infrastructure
 
         public void Send<T>(T command) where T : Command
         {
-            Trace.WriteLine(JsonConvert.SerializeObject(command));
+            Trace.WriteLine(typeof(T).Name, JsonConvert.SerializeObject(command));
             List<Action<Message>> handlers;
 
             if (_routes.TryGetValue(typeof(T), out handlers))
@@ -41,7 +41,7 @@ namespace Itera.Fagdag.WebShop.Domain.Infrastructure
 
         public void Publish<T>(T @event) where T : Event
         {
-            Trace.WriteLine(JsonConvert.SerializeObject(@event));
+            Trace.WriteLine(typeof(T).Name, JsonConvert.SerializeObject(@event));
             List<Action<Message>> handlers;
 
             if (!_routes.TryGetValue(@event.GetType(), out handlers)) return;

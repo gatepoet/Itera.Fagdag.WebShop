@@ -4,9 +4,9 @@ namespace Itera.Fagdag.WebShop.Domain.Order
 {
     public class OrderCommandHandlers
     {
-        private readonly IRepository<Order> _repository;
+        private readonly AggregateRepository<Order> _repository;
 
-        public OrderCommandHandlers(IRepository<Order> repository)
+        public OrderCommandHandlers(AggregateRepository<Order> repository)
         {
             _repository = repository;
         }

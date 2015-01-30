@@ -2,11 +2,11 @@ using System;
 
 namespace Itera.Fagdag.WebShop.Domain.Infrastructure
 {
-    public class Repository<T> : IRepository<T> where T: AggregateRoot, new() //shortcut you can do as you see fit with new()
+    public class AggregateRepository<T> : IAggregateRepository<T> where T : AggregateRoot, new() //shortcut you can do as you see fit with new()
     {
         private readonly IEventStore _storage;
 
-        public Repository(IEventStore storage)
+        public AggregateRepository(IEventStore storage)
         {
             _storage = storage;
         }
@@ -18,10 +18,10 @@ namespace Itera.Fagdag.WebShop.Domain.Infrastructure
 
         public T GetById(Guid id)
         {
-            var obj = new T();//lots of ways to do this
-            var e = _storage.GetEventsForAggregate(id);
-            obj.LoadsFromHistory(e);
-            return obj;
+            var aggregate = new T();//lots of ways to do this
+            var events = _storage.GetEventsForAggregate(id);
+            aggregate.LoadsFromHistory(events);
+            return aggregate;
         }
     }
 }

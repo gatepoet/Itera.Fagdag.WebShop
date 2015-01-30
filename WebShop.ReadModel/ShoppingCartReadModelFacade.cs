@@ -3,12 +3,6 @@ using System.Linq;
 
 namespace Itera.Fagdag.WebShop.ReadModel
 {
-
-
-
-
-    #region Shopping cart
-
     public class ShoppingCartReadModelFacade : IShoppingCartReadModelFacade
     {
         public ShoppingCartDto[] GetAll()
@@ -23,15 +17,4 @@ namespace Itera.Fagdag.WebShop.ReadModel
                 : null;
         }
     }
-
-    #endregion
-
-
-    #region Product
-
-    #endregion
-
-    #region User
-
-    #endregion
 }
